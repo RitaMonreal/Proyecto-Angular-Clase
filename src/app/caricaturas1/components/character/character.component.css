@@ -1,0 +1,29 @@
+img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 5px;
+}
+span{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    padding: 5px;
+}
+
+button{
+  background-color: #e74c3c; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px;
+  padding: 10px 20px; 
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

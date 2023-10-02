@@ -1,0 +1,30 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    text-align: center;
+    height: 100px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    display: inline-block; 
+    padding: 100px 141px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+}
+
+li:hover{
+    background-color: aliceblue;
+    color:black;
+}
+
+

@@ -1,0 +1,10 @@
+<br>
+<div><button (click)=" sortPrograms()">Ordenar A-Z</button></div>
+
+<ul>
+    <!--<li *ngFor="let nombre of nombres">{{nombre}}</li>-->
+     
+    <app-program *ngFor="let program of programs" [program]="program" 
+    [program]="program" (onClickEliminarP)="deleteProgram($event)"></app-program>
+</ul>
+
