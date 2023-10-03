@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { character } from './caricaturas1/interfaces/caricaturas1.interface';
-import { program } from './caricaturas2/interfaces/caricaturas2.interfaces';
 
 
 @Component({
@@ -41,12 +39,12 @@ export class AppComponent {
     }
   }*/
 
-  deleteProgram(programId: number) {
+  /*deleteProgram(programId: number) {
     const index = this.programs.findIndex(program => program.id === programId);
     if (index !== -1) {
       this.programs.splice(index, 1);
     }
-  }
+  }*/
 
   regresarAlPrimerModulo(): void {
     this.mostrarPrograms = true; 
@@ -87,7 +85,7 @@ export class AppComponent {
     }
   ]
 */
-  public programs: program[] = [
+  /*public programs: program[] = [
     {
       "id":1,
       "title":"The Simpsons",
@@ -119,5 +117,5 @@ export class AppComponent {
       "image":"https://m.media-amazon.com/images/M/MV5BMGFiZGI4Y2ItMzkzOC00OTE5LThlZDgtNzE1YTdmNTA5ZTZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTEwMTkwOTI@._V1_.jpg"
     },
 
-  ]
+  ]*/
 }
