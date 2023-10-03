@@ -3,14 +3,7 @@
 <app-menu-superior (onClickMuestraProgramas)="primerModulo()" 
 (onClickMuestraCaricaturas)="segundoModulo()" (onClickInfoAlumno)="tercerModulo()"></app-menu-superior>
 
-<!--Primer modulo, muestra todos los programas-->
-<app-program-list [programs]="programs"  *ngIf="mostrarPrograms" 
-(onClickEliminarP)="deleteProgram($event)"></app-program-list>
-
-
-<!--Segundo modulo, muestra a Rick & Morty-->
-<app-charcater-list [characters]="characters" *ngIf="mostrarCaricaturas" 
-(onClickEliminarC)="deleteCharacter($event)"></app-charcater-list>
+<router-outlet></router-outlet>
 
 <!--Tercer modulo, muestra mi información personal-->
 
@@ -18,3 +11,22 @@
 
 
 
+<!--
+    Menu superior
+<app-menu-superior (onClickMuestraProgramas)="primerModulo()" 
+(onClickMuestraCaricaturas)="segundoModulo()" (onClickInfoAlumno)="tercerModulo()"></app-menu-superior>
+
+Primer modulo, muestra todos los programas
+<app-program-list [programs]="programs"  *ngIf="mostrarPrograms" 
+(onClickEliminarP)="deleteProgram($event)"></app-program-list>
+
+
+Segundo modulo, muestra a Rick & Morty
+<app-charcater-list [characters]="characters" *ngIf="mostrarCaricaturas" 
+(onClickEliminarC)="deleteCharacter($event)"></app-charcater-list>
+
+Tercer modulo, muestra mi información personal
+
+<app-informacion-alumno *ngIf="mostrarInformacion" (onClickShowPrimerM)="regresarAlPrimerModulo()"></app-informacion-alumno>
+
+-->

@@ -5,7 +5,7 @@ import { Caricaturas2Module } from "./caricaturas2/components/caricaturas2.modul
 import { Caricaturas1Module } from "./caricaturas1/caricaturas1.module";
 import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { InformacionAlumnoModule } from './informacion-alumno/informacion-alumno.module';
-import { CaricaturasComponent } from './caricaturas/caricaturas.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -13,7 +13,6 @@ import { CaricaturasComponent } from './caricaturas/caricaturas.component';
     declarations: [
         AppComponent,
         MenuSuperiorComponent,
-        CaricaturasComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -21,7 +20,8 @@ import { CaricaturasComponent } from './caricaturas/caricaturas.component';
         BrowserModule,
         Caricaturas2Module,
         Caricaturas1Module,
-        InformacionAlumnoModule
+        InformacionAlumnoModule,
+        AppRoutingModule
     ]
 })
 export class AppModule { }

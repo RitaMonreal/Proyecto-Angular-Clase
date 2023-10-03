@@ -34,12 +34,12 @@ export class AppComponent {
     this.mostrarInformacion=true;
   }
 
-  deleteCharacter(characterId: number) {
+  /*deleteCharacter(characterId: number) {
     const index = this.characters.findIndex(character => character.id === characterId);
     if (index !== -1) {
       this.characters.splice(index, 1);
     }
-  }
+  }*/
 
   deleteProgram(programId: number) {
     const index = this.programs.findIndex(program => program.id === programId);
@@ -54,7 +54,7 @@ export class AppComponent {
     this.mostrarInformacion = false; 
   }
   
-  public characters: character[] = [
+/*  public characters: character[] = [
     {
       "id":1,
       "name": "Birdperson",
@@ -86,7 +86,7 @@ export class AppComponent {
       "image": "https://rickandmortyapi.com/api/character/avatar/777.jpeg",
     }
   ]
-
+*/
   public programs: program[] = [
     {
       "id":1,
