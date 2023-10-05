@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
 import { program } from './interfaces/caricaturas2.interfaces';
+import { Caricaturas2Service } from './services/caricaturas2.service';
 
 @Component({
   selector: 'app-caricaturas2',
   templateUrl: './caricaturas2.pages.html',
 })
 export class Caricaturas2Page {
-  public programs: program[] = [
+
+  constructor(private caricaturas2Service: Caricaturas2Service){}
+
+  public get program(): program[]{
+    return this.caricaturas2Service.programs;
+  } 
+  /*public programs: program[] = [
     {
       "id":1,
       "title":"The Simpsons",
@@ -38,7 +45,7 @@ export class Caricaturas2Page {
       "image":"https://m.media-amazon.com/images/M/MV5BMGFiZGI4Y2ItMzkzOC00OTE5LThlZDgtNzE1YTdmNTA5ZTZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTEwMTkwOTI@._V1_.jpg"
     },
 
-  ]
+  ]*/
 
    /*deleteProgram(programId: number) {
     const index = this.programs.findIndex(program => program.id === programId);

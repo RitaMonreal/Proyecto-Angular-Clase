@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
 import { character } from './interfaces/caricaturas1.interface';
+import { Caricaturas1Service } from './services/caricaturas1.service';
 
 @Component({
   selector: 'app-caricaturas1',
   templateUrl: './caricaturas1.pages.html'
 })
 export class Caricaturas1Page {
-  public characters: character[] = [
+
+
+  constructor(private caricaturas1Service: Caricaturas1Service){}
+
+  public get characters(): character[]{
+    return this.caricaturas1Service.characters;
+  }
+  
+ /* public characters: character[] = [
     {
       "id":1,
       "name": "Birdperson",
@@ -37,12 +46,12 @@ export class Caricaturas1Page {
       "name": "Gotron Pilot",
       "image": "https://rickandmortyapi.com/api/character/avatar/777.jpeg",
     }
-  ]
+  ]*/
 
-  deleteCharacter(characterId: number) {
+ /* deleteCharacter(characterId: number) {
     const index = this.characters.findIndex(character => character.id === characterId);
     if (index !== -1) {
       this.characters.splice(index, 1);
     }
-  }
+  }*/
 }
