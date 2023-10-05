@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { program } from '../../interfaces/caricaturas2.interfaces';
+import { Caricaturas2Service } from '../../services/caricaturas2.service';
 
 @Component({
   selector: 'app-program-list',
@@ -7,29 +8,14 @@ import { program } from '../../interfaces/caricaturas2.interfaces';
   styleUrls: ['./program-list.component.css']
 })
 export class ProgramListComponent {
-  @Input()
-  public programs: program[] = [
-  ];
+  constructor(private caricaturas2Service: Caricaturas2Service){}
 
-  public ordenAZ: string = 'title';
-
-  sortPrograms() {
-    this.programs.sort((a, b) => {
-      if (this.ordenAZ === 'title') {
-        return a.title.localeCompare(b.title);
-      } else {
-        return a.id - b.id;
-      }
-    });
+  public get programs(): program[]{
+    return this.caricaturas2Service.programs;
   }
 
-
- @Output()
- public onClickEliminarP: EventEmitter<number> = new EventEmitter();  
-
- 
- public deleteProgram($event: number): void{
-    this.onClickEliminarP.emit($event);
- }
+  public onSortPrograms(): void{
+    this.caricaturas2Service.sortPrograms();
+  }
 
 }

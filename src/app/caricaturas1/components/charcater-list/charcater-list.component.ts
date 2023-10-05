@@ -21,8 +21,6 @@ export class CharcaterListComponent {
     this.caricaturas1Service.sortCharacters();
   }
 
-  public onDeleteCharacter(id: number): void{
-    this.caricaturas1Service.deleteCharacter(id);
-  }
+  
 
 }

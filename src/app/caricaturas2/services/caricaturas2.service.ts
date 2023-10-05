@@ -43,4 +43,17 @@ export class Caricaturas2Service{
       this.programs.splice(index, 1);
     }
   }
+
+  public ordenAZ: string = 'title';
+
+  sortPrograms() {
+    this.programs.sort((a, b) => {
+      if (this.ordenAZ === 'title') {
+        return a.title.localeCompare(b.title);
+      } else {
+        return a.id - b.id;
+      }
+    });
+  }
+
 }
