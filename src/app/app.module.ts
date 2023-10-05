@@ -6,13 +6,15 @@ import { Caricaturas1Module } from "./caricaturas1/caricaturas1.module";
 import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { InformacionAlumnoModule } from './informacion-alumno/informacion-alumno.module';
 import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        MenuSuperiorComponent
+        MenuSuperiorComponent,
+        NotFoundComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

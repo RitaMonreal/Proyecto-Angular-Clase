@@ -1,12 +1,12 @@
 
 <!--Menu superior-->
-<app-menu-superior (onClickMuestraProgramas)="primerModulo()" 
-(onClickMuestraCaricaturas)="segundoModulo()" (onClickInfoAlumno)="tercerModulo()"></app-menu-superior>
+<app-menu-superior (onClickInfoAlumno)="tercerModulo()"></app-menu-superior>
 
 <router-outlet></router-outlet>
 
+<app-informacion-alumno *ngIf="isNotProgramRoute" (onClickShowPrimerM)="regresarAlPrimerModulo()"></app-informacion-alumno>
 
-<app-informacion-alumno *ngIf="mostrarInformacion" (onClickShowPrimerM)="regresarAlPrimerModulo()"></app-informacion-alumno>
+<!--<app-informacion-alumno *ngIf="isNotProgramRoute" (onClickShowPrimerM)="regresarAlPrimerModulo()"></app-informacion-alumno>-->
 
 
 <!--

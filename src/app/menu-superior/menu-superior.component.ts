@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-superior',
@@ -6,6 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./menu-superior.component.css']
 })
 export class MenuSuperiorComponent {
+
+ 
+
   @Output()
   public onClickMuestraProgramas: EventEmitter<void> = new EventEmitter();  
 

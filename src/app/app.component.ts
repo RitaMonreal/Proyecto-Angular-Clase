@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,11 +9,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rita-monreal-p1';
-
   public mostrarPrograms=true;
   public mostrarCaricaturas=false;
   public mostrarInformacion=false;
- 
+
+  constructor(private router: Router){} 
+
+  public get isNotProgramRoute(): boolean{
+    const currentRoute = this.router.url;
+    return !(currentRoute === "/personajes" || currentRoute === "/series");
+   
+  }
+
+ /* constructor(private router: Router){} 
+
+  public get isProgramRoute(): boolean{
+    return this.router.url == "./series";
+   
+  }*/
 
   primerModulo(): void{
     this.mostrarPrograms=true;
