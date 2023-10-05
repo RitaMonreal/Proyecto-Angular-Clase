@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { character } from '../../interfaces/caricaturas1.interface';
+import { Caricaturas1Service } from '../../services/caricaturas1.service';
 
 @Component({
   selector: 'app-charcater-list',
@@ -7,21 +8,21 @@ import { character } from '../../interfaces/caricaturas1.interface';
   styleUrls: ['./charcater-list.component.css']
 })
 export class CharcaterListComponent {
-  @Input()
-  public characters: character[] = [
 
- ];
- public revertir: boolean = false;
+  constructor(private caricaturas1Service: Caricaturas1Service){
+    
+  }
 
- public sortCharacters(){
-  this.revertir = !this.revertir;
-  this.characters.reverse();
- }
+  public get characters(): character[]{
+    return this.caricaturas1Service.characters;
+  }
+  
+  public onSortCharacters(): void{
+    this.caricaturas1Service.sortCharacters();
+  }
 
- @Output()
- public onClickEliminarC: EventEmitter<number> = new EventEmitter();   
- 
- public deleteCharacter($event: number) : void{
-    this.onClickEliminarC.emit($event);
- }
+  public onDeleteCharacter(id: number): void{
+    this.caricaturas1Service.deleteCharacter(id);
+  }
+
 }

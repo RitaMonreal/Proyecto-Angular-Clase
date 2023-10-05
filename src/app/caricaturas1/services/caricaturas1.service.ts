@@ -34,6 +34,21 @@ export class Caricaturas1Service{
           "name": "Gotron Pilot",
           "image": "https://rickandmortyapi.com/api/character/avatar/777.jpeg",
         }
-      ]
-    
+      ];
+
+      public revertir: boolean = false;
+
+    sortCharacters(){
+      this.revertir = !this.revertir;
+      this.characters.reverse();
+    }
+
+    deleteCharacter(characterId: number) {
+      const index = this.characters.findIndex(character => character.id === characterId);
+      if (index !== -1) {
+        this.characters.splice(index, 1);
+      }
+    }
+
+
 }
