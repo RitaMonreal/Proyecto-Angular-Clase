@@ -10,7 +10,17 @@ import { Caricaturas1Service } from '../../services/caricaturas1.service';
 export class CharcaterListComponent {
 
   constructor(private caricaturas1Service: Caricaturas1Service){
-    
+    this.caricaturas1Service.fetchCharacterFromApi().subscribe(
+      {
+        next: (response: any) =>{
+          //console.log(response);
+          this.caricaturas1Service.characters = response.characterList;
+        },
+        error: (error: any) =>{
+          console.log(error);
+        }
+      }
+    )
   }
 
   public get characters(): character[]{
