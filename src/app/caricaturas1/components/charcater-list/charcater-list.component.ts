@@ -10,7 +10,24 @@ import { Caricaturas1Service } from '../../services/caricaturas1.service';
 export class CharcaterListComponent {
 
   constructor(private caricaturas1Service: Caricaturas1Service){
-    this.caricaturas1Service.fetchCharacterFromApi().subscribe(
+    this.searchCharacters();
+  }
+
+  public get characters(): character[]{
+    return this.caricaturas1Service.characters;
+  }
+  
+  public onSortCharacters(): void{
+    this.caricaturas1Service.sortCharacters();
+  }
+
+  public searchByTerm(): void{
+    this.searchCharacters("ron");
+  }
+
+  //si no hay termino entonces se le asigna cadena vacia
+  private searchCharacters(searchTerm: string = ""): void{
+    this.caricaturas1Service.fetchCharacterFromApi(searchTerm).subscribe(
       {
         next: (response: any) =>{
           //console.log(response);
@@ -22,15 +39,5 @@ export class CharcaterListComponent {
       }
     )
   }
-
-  public get characters(): character[]{
-    return this.caricaturas1Service.characters;
-  }
-  
-  public onSortCharacters(): void{
-    this.caricaturas1Service.sortCharacters();
-  }
-
-  
 
 }

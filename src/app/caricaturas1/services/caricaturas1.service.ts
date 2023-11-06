@@ -11,8 +11,9 @@ export class Caricaturas1Service{
 
     }
 
-    fetchCharacterFromApi() : Observable <any> {
-       return this.http.get("http://localhost:8081/api/characters");
+    fetchCharacterFromApi(searchTerm: string) : Observable <any> {
+      //interpolacion de cadenas utilizando las comillas invertidas, cadenas con objetos
+       return this.http.get(`http://localhost:8081/api/characters?searchTerm=${searchTerm}`);
     }
 
 

@@ -1,7 +1,10 @@
 
 <br>
 <div><button (click)=" onSortCharacters()">Revertir orden</button></div>
+<br>
 
+<label for="searchTerm">Buscar por titulo: </label> <input type="text" id="searchTerm">
+<button type="button" (click)="searchByTerm()">buscar</button>
 
 <ul>
     <!--<li *ngFor="let nombre of nombres">{{nombre}}</li>-->
