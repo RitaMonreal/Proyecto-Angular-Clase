@@ -1,5 +1,11 @@
 <br>
-<div><button (click)=" onSortPrograms()">Ordenar A-Z</button></div>
+<!--<div><button (click)=" onSortPrograms()">Ordenar A-Z</button></div>-->
+<br>
+
+<label for="searchTerm">Buscar por titulo: </label> 
+<input [(ngModel)]="searchTerm" type="text" id="searchTerm">
+<button type="button" (click)="searchByTerm()">buscar</button>
+<!--{{searchTerm}}-->
 
 <ul>
     <!--<li *ngFor="let nombre of nombres">{{nombre}}</li>-->

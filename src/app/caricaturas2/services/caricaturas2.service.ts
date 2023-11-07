@@ -1,41 +1,22 @@
 import { Injectable } from "@angular/core";
 import { program } from "../interfaces/caricaturas2.interfaces";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({providedIn: "root"})//permite utilizar en cualquier parte de la aplicacion
 export class Caricaturas2Service{
-    public programs: program[] = [
-        {
-          "id":1,
-          "title":"The Simpsons",
-          "image":"https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
-        },
-        {
-          "id":2,
-          "title":"Gravity Falls",
-          "image":"https://m.media-amazon.com/images/M/MV5BMTEzNDc3MDQ2NzNeQTJeQWpwZ15BbWU4MDYzMzUwMDIx._V1_SY1000_CR0,0,641,1000_AL_.jpg"
-        },
-        {
-          "id":3,
-          "title":"Bojack Horseman",
-          "image":"https://m.media-amazon.com/images/M/MV5BYWQwMDNkM2MtODU4OS00OTY3LTgwOTItNjE2Yzc0MzRkMDllXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-        },
-        {
-          "id":4,
-          "title":"Adventure Time",
-          "image":"https://m.media-amazon.com/images/M/MV5BMjE2MzE1MDI2M15BMl5BanBnXkFtZTgwNzUyODQxMDE@._V1_SY1000_CR0,0,731,1000_AL_.jpg",
-        },
-        {
-          "id":5,
-          "title":"My little Pony",
-          "image":"https://m.media-amazon.com/images/M/MV5BMTk4NTgxMjItZTU5ZS00NGE3LWJlODQtMTMzOTJlZmU5ODk1XkEyXkFqcGdeQXVyNjUzMDIyNzE@._V1_.jpg",
-        },
-        {
-          "id":6,
-          "title":"Ed, Edd n Eddy",
-          "image":"https://m.media-amazon.com/images/M/MV5BMGFiZGI4Y2ItMzkzOC00OTE5LThlZDgtNzE1YTdmNTA5ZTZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTEwMTkwOTI@._V1_.jpg"
-        },
+    public programs: program[] = [];
+
+    constructor (private http: HttpClient){
+      
+    }
+
+    fetchProgramFromApi(searchTerm: string, sortDesc: boolean = false) : Observable <any> {
+      //interpolacion de cadenas utilizando las comillas invertidas, cadenas con objetos
+       return this.http.get(`http://localhost:8081/api/programs?searchTerm=${searchTerm}&sortDesc=${sortDesc}`);
+    }
+
     
-      ];
 
     deleteProgram(programId: number) {
     const index = this.programs.findIndex(program => program.id === programId);
@@ -44,7 +25,10 @@ export class Caricaturas2Service{
     }
   }
 
-  public ordenAZ: string = 'title';
+
+  
+
+  /*public ordenAZ: string = 'title';
 
   sortPrograms() {
     this.programs.sort((a, b) => {
@@ -55,5 +39,5 @@ export class Caricaturas2Service{
       }
     });
   }
-
+*/
 }
