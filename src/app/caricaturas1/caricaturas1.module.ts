@@ -4,6 +4,7 @@ import { CharcaterListComponent } from './components/charcater-list/charcater-li
 import { CharacterComponent } from './components/character/character.component';
 import { Caricaturas1Page } from './caricaturas1.pages';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     ],
     imports:[
         CommonModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ]
 })
 export class Caricaturas1Module { }

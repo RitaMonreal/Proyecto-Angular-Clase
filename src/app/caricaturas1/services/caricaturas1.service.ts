@@ -11,18 +11,18 @@ export class Caricaturas1Service{
 
     }
 
-    fetchCharacterFromApi(searchTerm: string) : Observable <any> {
+    fetchCharacterFromApi(searchTerm: string, sortDesc: boolean = false) : Observable <any> {
       //interpolacion de cadenas utilizando las comillas invertidas, cadenas con objetos
-       return this.http.get(`http://localhost:8081/api/characters?searchTerm=${searchTerm}`);
+       return this.http.get(`http://localhost:8081/api/characters?searchTerm=${searchTerm}&sortDesc=${sortDesc}`);
     }
 
 
-    public revertir: boolean = false;
+  /*  public revertir: boolean = false;*/
 
-    sortCharacters(){
+ /*   sortCharacters(){
       this.revertir = !this.revertir;
       this.characters.reverse();
-    }
+    }*/
 
     deleteCharacter(characterId: number) {
       const index = this.characters.findIndex(character => character.id === characterId);

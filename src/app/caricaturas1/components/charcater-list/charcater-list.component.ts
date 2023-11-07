@@ -9,6 +9,9 @@ import { Caricaturas1Service } from '../../services/caricaturas1.service';
 })
 export class CharcaterListComponent {
 
+  public searchTerm: string = "";
+  public sortAsc: boolean = true; 
+
   constructor(private caricaturas1Service: Caricaturas1Service){
     this.searchCharacters();
   }
@@ -17,12 +20,31 @@ export class CharcaterListComponent {
     return this.caricaturas1Service.characters;
   }
   
-  public onSortCharacters(): void{
-    this.caricaturas1Service.sortCharacters();
+ /* public onSortCharacters(): void{
+    this.onSortCharacters(this.onSortCharacters)
+  }*/
+
+  public onSortCharacters(): void {
+    this.sortAsc = !this.sortAsc; // Cambia el estado del orden
+    this.orderCharacters();
   }
 
+
+  private orderCharacters(): void {
+    this.caricaturas1Service.fetchCharacterFromApi(this.searchTerm, this.sortAsc).subscribe(
+      {
+        next: (response: any) => {
+          this.caricaturas1Service.characters = response.characterList;
+        },
+        error: (error: any) => {
+          console.log(error);
+        },
+      });
+  }
+  
+
   public searchByTerm(): void{
-    this.searchCharacters("ron");
+    this.searchCharacters(this.searchTerm);
   }
 
   //si no hay termino entonces se le asigna cadena vacia
