@@ -16,20 +16,10 @@ export class Caricaturas1Service{
        return this.http.get(`http://localhost:8081/api/characters?searchTerm=${searchTerm}&sortDesc=${sortDesc}`);
     }
 
-
-  /*  public revertir: boolean = false;*/
-
- /*   sortCharacters(){
-      this.revertir = !this.revertir;
-      this.characters.reverse();
-    }*/
-
     deleteCharacter(characterId: number) {
       const index = this.characters.findIndex(character => character.id === characterId);
       if (index !== -1) {
         this.characters.splice(index, 1);
       }
     }
-
-
 }

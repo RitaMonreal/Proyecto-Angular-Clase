@@ -19,3 +19,7 @@ div{
   align-items: center; 
   height: 10vh; 
 }
+
+label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

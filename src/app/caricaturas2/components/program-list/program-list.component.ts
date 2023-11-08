@@ -20,11 +20,33 @@ export class ProgramListComponent {
     return this.caricaturas2Service.programs;
   }
 
- /* public onSortPrograms(): void{
-    this.caricaturas2Service.sortPrograms();
-  }*/
 
- 
+
+
+  public onSortPrograms(): void {
+    console.log('Botón "Ordenar A-Z" presionado');
+    this.sortAsc = !this.sortAsc; // Cambia el estado del orden
+    console.log(`Valor de this.sortAsc: ${this.sortAsc}`);
+    this.onSortProgramsAZ(this.sortAsc);
+  }
+  
+
+
+ /* public onSortPrograms(): void {
+    this.sortAsc = !this.sortAsc; // Cambia el estado del orden
+    this.onSortProgramsAZ(this.sortAsc);
+  }*/
+  public onSortProgramsAZ(sortAsc: boolean): void {
+    this.caricaturas2Service.fetchProgramFromApi(this.searchTerm, sortAsc).subscribe({
+      next: (response: any) => {
+        this.caricaturas2Service.programs = response.programList;
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
+  }
+
 
   public searchByTerm(): void{
     console.log('searchByTerm() called');

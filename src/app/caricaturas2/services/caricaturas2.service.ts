@@ -11,10 +11,13 @@ export class Caricaturas2Service{
       
     }
 
-    fetchProgramFromApi(searchTerm: string, sortDesc: boolean = false) : Observable <any> {
-      //interpolacion de cadenas utilizando las comillas invertidas, cadenas con objetos
-       return this.http.get(`http://localhost:8081/api/programs?searchTerm=${searchTerm}&sortDesc=${sortDesc}`);
+    fetchProgramFromApi(searchTerm: string, sortBy: boolean = false): Observable<any> {
+      // Utiliza el parámetro sortOrder en la URL de la solicitud
+      
+      return this.http.get(`http://localhost:8081/api/programs?searchTerm=${searchTerm}&sortBy=${sortBy}`);
     }
+    
+
 
     
 
@@ -24,20 +27,4 @@ export class Caricaturas2Service{
       this.programs.splice(index, 1);
     }
   }
-
-
-  
-
-  /*public ordenAZ: string = 'title';
-
-  sortPrograms() {
-    this.programs.sort((a, b) => {
-      if (this.ordenAZ === 'title') {
-        return a.title.localeCompare(b.title);
-      } else {
-        return a.id - b.id;
-      }
-    });
-  }
-*/
 }

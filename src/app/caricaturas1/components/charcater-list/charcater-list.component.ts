@@ -20,10 +20,6 @@ export class CharcaterListComponent {
     return this.caricaturas1Service.characters;
   }
   
- /* public onSortCharacters(): void{
-    this.onSortCharacters(this.onSortCharacters)
-  }*/
-
   public onSortCharacters(): void {
     this.sortAsc = !this.sortAsc; // Cambia el estado del orden
     this.orderCharacters();
