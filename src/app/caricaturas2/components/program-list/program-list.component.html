@@ -1,3 +1,6 @@
+
+
+
 <br>
 <button (click)=" onSortPrograms()">Ordenar A-Z</button>
 <br>
@@ -6,6 +9,29 @@
 <input [(ngModel)]="searchTerm" type="text" id="searchTerm">
 <button type="button" (click)="searchByTerm()">buscar</button>
 <!--{{searchTerm}}-->
+
+
+
+<div>
+  <form>
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="programId" [(ngModel)]="programId">
+  
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="programTitle" [(ngModel)]="programTitle" required>
+  
+    <label for="image">URL de la imagen:</label>
+    <input type="text" id="image" name="programImage" [(ngModel)]="programImage" required>
+  
+    <button type="submit" (click)="createProgram()">Agregar Programa</button>
+  </form>
+  
+  
+  </div>
+
+
+
+
 
 <ul>
     <!--<li *ngFor="let nombre of nombres">{{nombre}}</li>-->

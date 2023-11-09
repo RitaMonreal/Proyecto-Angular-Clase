@@ -18,6 +18,9 @@ export class Caricaturas2Service{
     }
     
 
+    createProgram(program: program): Observable<any>{
+      return this.http.post("http://localhost:8081/api/programs", program);
+    }
 
     
 

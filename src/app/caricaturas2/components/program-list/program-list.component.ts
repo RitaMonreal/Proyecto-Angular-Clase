@@ -11,7 +11,10 @@ export class ProgramListComponent {
 
   public searchTerm: string = "";
   public sortAsc: boolean = true; 
-  
+  public programId: string = "";
+  public programTitle: string = "";
+  public programImage: string = "";
+
   constructor(private caricaturas2Service: Caricaturas2Service){
     this.searchPrograms();
   }
@@ -46,6 +49,21 @@ export class ProgramListComponent {
       }
     });
   }
+
+  public createProgram(){
+    const newProgram: program = { id: +this.programId, title: this.programTitle, image: this.programImage };
+    this.caricaturas2Service.createProgram(newProgram).subscribe(
+      {
+        next: (response: any) =>{
+          console.log(response);
+        },
+        error: (error: any) =>{
+          console.log(error);
+        }
+      }
+    )
+  }
+    
 
 
   public searchByTerm(): void{
