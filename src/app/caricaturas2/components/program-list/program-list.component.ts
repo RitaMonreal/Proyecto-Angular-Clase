@@ -19,8 +19,31 @@ export class ProgramListComponent {
   public updateTitle: string = "";
   public updateImage: string = "";
 
+  
+  isEditing: boolean = false;
+  programIdBeingEdited: number = -1;
+
+
+
   constructor(private caricaturas2Service: Caricaturas2Service){
     this.searchPrograms();
+  }
+
+  abrirFormularioEdicion(programId: number): void {
+    this.isEditing = true;
+    this.programIdBeingEdited = programId;
+  }
+
+  resetForm(): void {
+    this.programIdE = "";
+    this.updateTitle = "";
+    this.updateImage = "";
+  }
+
+  cerrarFormularioEdicion(): void {
+    this.isEditing = false;
+    this.programIdBeingEdited = -1;
+    this.resetForm();
   }
 
   public get programs(): program[]{
@@ -59,26 +82,29 @@ export class ProgramListComponent {
     )
   }
 
-  public updateProgram(){
-   
-    const updatedProgram: program = {
-      id: +this.programIdE,
-      title: this.updateTitle,
-      image: this.updateImage
-    };
-
-    this.caricaturas2Service.updateProgram(updatedProgram.id, updatedProgram).subscribe(
-
-      {
+  public updateProgram(): void {
+    if (this.programIdBeingEdited !== -1) {
+      const updatedProgram: program = {
+        id: this.programIdBeingEdited,
+        title: this.updateTitle,
+        image: this.updateImage
+      };
+  
+      this.caricaturas2Service.updateProgram(updatedProgram.id, updatedProgram).subscribe({
         next: (response: any) => {
           console.log(response);
+          // Restablecer después de la actualización
+          this.cerrarFormularioEdicion();
         },
         error: (error: any) => {
           console.log(error);
         }
-      }
-    );
+      });
+    } else {
+      console.error('ID de programa no válido');
+    }
   }
+
   
   public searchByTerm(): void{
     console.log('searchByTerm() called');
@@ -98,6 +124,12 @@ export class ProgramListComponent {
           }
         }
       )
+    }
+
+    editarPrograma(id: number): void {
+      // Aquí puedes abrir un formulario de edición o realizar otras acciones necesarias.
+      // Puedes implementar la lógica para editar el programa utilizando el id proporcionado.
+      console.log(`Editando programa con ID: ${id}`);
     }
 
 }

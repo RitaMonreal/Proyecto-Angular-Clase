@@ -1,25 +1,36 @@
-
-ul{
+ul {
     display: flex;
-}
-
-button{
-    background-color: #007bff; 
-    color: #fff; 
-    border: none; 
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    font-size: 24px; 
+  }
+  
+  button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+    margin: 5px;
+  }
+  
+  .az-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+  }
+  
+  .search-button,
+  .add-button,
+  .update-button {
+    background-color: #7f4caf;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
 
-div{
-    display: flex; 
-  justify-content: center;
-  align-items: center; 
-  height: 10vh; 
-}
-
-label{
+  h3{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  }
+  
+  label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }

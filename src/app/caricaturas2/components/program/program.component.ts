@@ -8,7 +8,12 @@ import { Caricaturas2Service } from '../../services/caricaturas2.service';
   styleUrls: ['./program.component.css']
 })
 export class ProgramComponent {
+
+  public programIdBeingEdited: number | null = null;
+  public isEditing: boolean = false;
+  
   constructor(private caricaturas2Service: Caricaturas2Service){}
+  @Output() editarProgramaClick: EventEmitter<number> = new EventEmitter<number>();
 
   @Input()
   public program : program ={
@@ -23,7 +28,7 @@ export class ProgramComponent {
     if (this.program && this.program.id) {
       this.caricaturas2Service.deleteProgram(this.program.id).subscribe({
         next: (response: any) => {
-          
+          //Aqui no hago nada
         },
         error: (error: any) => {
           console.error('Error al eliminar el programa:', error);
@@ -34,8 +39,11 @@ export class ProgramComponent {
     }
   }
   
-
-  
-  
+  //Este envía el id
+  editarPrograma(id: number): void {
+    console.log(`Editando programa con ID: ${id}`);
+    this.editarProgramaClick.emit(id);
+  }
   
 }
+

@@ -1,12 +1,12 @@
 <br>
-<button (click)=" onSortPrograms()">Ordenar A-Z</button>
+<button id=principal (click)=" onSortPrograms()" class="az-button">Ordenar A-Z</button>
 <br>
 
 <label for="searchTerm">Buscar por titulo: </label> 
 <input [(ngModel)]="searchTerm" type="text" id="searchTerm">
-<button type="button" (click)="searchByTerm()">buscar</button>
+<button type="button" (click)="searchByTerm()" class="search-button">buscar</button>
 <!--{{searchTerm}}-->
-<h1>Agregar programa</h1>
+<h3>Agregar programa</h3>
 <div>
   <form>
     <label for="id">ID:</label>
@@ -19,33 +19,34 @@
     <label for="image">URL de la imagen:</label>
     <input type="text" id="image" name="programImage" [(ngModel)]="programImage" required>
     
-    <button type="submit" (click)="createProgram()">Agregar Programa</button>
+    <button type="submit" (click)="createProgram()" class="add-button">Agregar Programa</button>
   </form>  
   
   </div>
-<h1>Editar programa</h1>
-  <div>
-    <form>
-      <label for="id">ID:</label>
-      <input type="text" id="id" name="programId" [(ngModel)]="programIdE" required>
-    
+
+  <div *ngIf="isEditing">
+    <h3>Editar programa</h3>
+    <form>    
       <label for="title">Título:</label>
       <input type="text" id="updateTitle" name="updateTitle" [(ngModel)]="updateTitle" required>
     
       <label for="image">URL de la imagen:</label>
       <input type="text" id="updateImage" name="updateImage" [(ngModel)]="updateImage" required>
     
-      <button type="button" (click)="updateProgram()">Editar Programa</button>
+      <button type="button" (click)="updateProgram()" class="update-button">Actualizar</button>
     </form>
     
 
   </div>
-
+  
+  
 
 
 <ul>
     <!--<li *ngFor="let nombre of nombres">{{nombre}}</li>-->
      
-    <app-program *ngFor="let program of programs" [program]="program"></app-program>
+    <app-program *ngFor="let program of programs" [program]="program" 
+    (editarProgramaClick)="abrirFormularioEdicion($event)"></app-program>
+    
 </ul>
 
