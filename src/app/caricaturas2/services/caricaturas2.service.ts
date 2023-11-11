@@ -27,15 +27,19 @@ export class Caricaturas2Service{
       return this.http.put(url, updatedProgram);
     }
   
-  
+    deleteProgram(programId: number): Observable<any> {
+      const url = `http://localhost:8081/api/programs/${programId}`;
+      return this.http.delete(url);
+    }
+    
 
 
     
 
-    deleteProgram(programId: number) {
+   /* deleteProgram(programId: number) {
     const index = this.programs.findIndex(program => program.id === programId);
     if (index !== -1) {
       this.programs.splice(index, 1);
     }
-  }
+  }*/
 }

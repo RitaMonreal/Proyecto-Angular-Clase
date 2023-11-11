@@ -18,7 +18,24 @@ export class ProgramComponent {
   }
 
 
-  public eliminarP(): void {
-    this.caricaturas2Service.deleteProgram(this.program.id);
+  eliminarP(): void {
+    console.log('Haciendo clic en eliminar');
+    if (this.program && this.program.id) {
+      this.caricaturas2Service.deleteProgram(this.program.id).subscribe({
+        next: (response: any) => {
+          
+        },
+        error: (error: any) => {
+          console.error('Error al eliminar el programa:', error);
+        }
+      });
+    } else {
+      console.error('Error al eliminar el programa');
+    }
   }
+  
+
+  
+  
+  
 }
