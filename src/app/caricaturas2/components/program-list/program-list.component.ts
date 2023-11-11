@@ -15,6 +15,10 @@ export class ProgramListComponent {
   public programTitle: string = "";
   public programImage: string = "";
 
+  public programIdE: string = "";
+  public updateTitle: string = "";
+  public updateImage: string = "";
+
   constructor(private caricaturas2Service: Caricaturas2Service){
     this.searchPrograms();
   }
@@ -23,22 +27,13 @@ export class ProgramListComponent {
     return this.caricaturas2Service.programs;
   }
 
-
-
-
   public onSortPrograms(): void {
     console.log('Botón "Ordenar A-Z" presionado');
-    this.sortAsc = !this.sortAsc; // Cambia el estado del orden
+    this.sortAsc = !this.sortAsc; 
     console.log(`Valor de this.sortAsc: ${this.sortAsc}`);
     this.onSortProgramsAZ(this.sortAsc);
   }
   
-
-
- /* public onSortPrograms(): void {
-    this.sortAsc = !this.sortAsc; // Cambia el estado del orden
-    this.onSortProgramsAZ(this.sortAsc);
-  }*/
   public onSortProgramsAZ(sortAsc: boolean): void {
     this.caricaturas2Service.fetchProgramFromApi(this.searchTerm, sortAsc).subscribe({
       next: (response: any) => {
@@ -63,9 +58,28 @@ export class ProgramListComponent {
       }
     )
   }
-    
 
+  public updateProgram(){
+   
+    const updatedProgram: program = {
+      id: +this.programIdE,
+      title: this.updateTitle,
+      image: this.updateImage
+    };
 
+    this.caricaturas2Service.updateProgram(updatedProgram.id, updatedProgram).subscribe(
+
+      {
+        next: (response: any) => {
+          console.log(response);
+        },
+        error: (error: any) => {
+          console.log(error);
+        }
+      }
+    );
+  }
+  
   public searchByTerm(): void{
     console.log('searchByTerm() called');
     this.searchPrograms(this.searchTerm);

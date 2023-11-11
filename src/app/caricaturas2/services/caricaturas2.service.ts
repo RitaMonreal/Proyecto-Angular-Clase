@@ -22,6 +22,14 @@ export class Caricaturas2Service{
       return this.http.post("http://localhost:8081/api/programs", program);
     }
 
+    updateProgram(programId: number, updatedProgram: program): Observable<any> {
+      const url = `http://localhost:8081/api/programs/${programId}`;
+      return this.http.put(url, updatedProgram);
+    }
+  
+  
+
+
     
 
     deleteProgram(programId: number) {
